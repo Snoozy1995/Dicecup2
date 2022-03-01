@@ -1,4 +1,4 @@
-package easv.oe.dicecup2
+package dicecup2
 
 import org.junit.Test
 

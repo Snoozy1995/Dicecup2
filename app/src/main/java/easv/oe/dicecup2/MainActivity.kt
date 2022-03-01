@@ -1,10 +1,12 @@
 package easv.oe.dicecup2
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import android.util.Log
+import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
+
 
 class MainActivity : AppCompatActivity() {
 
@@ -25,6 +27,9 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         btnRoll.setOnClickListener { v -> onClickRoll() }
         Log.d(TAG, "OnCreate")
+        btnHistory.setOnClickListener { v ->
+            startActivity(Intent(this@MainActivity, HistoryActivity::class.java))
+        }
 
     }
 
