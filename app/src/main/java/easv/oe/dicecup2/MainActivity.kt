@@ -11,7 +11,8 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private val TAG: String = "xyz"
-    private val playHistory=arrayListOf<List<Int>>();
+    var playHistory=arrayListOf<List<Int>>()
+    var diceCount=2
 
     // mapping from 1..6 to drawables, the first index is unused
     private val diceId = intArrayOf(0, R.drawable.dice1,
@@ -34,18 +35,15 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun addPlay(dices: List<Int>){
-        playHistory.add(0,dices);
-    }
-
     private fun onClickRoll(){
-        val e1 = mRandomGenerator.nextInt(6) + 1
-        val e2 = mRandomGenerator.nextInt(6) + 1
-
-        // set dices
-        updateDicesWith(e1, e2)
-        val e3=listOf(e1,e2)
-        addPlay(e3);
+        var x=diceCount;
+        var list: ArrayList<Int> = ArrayList();
+        while (x > 0) {
+            list.add(mRandomGenerator.nextInt(6) + 1)
+            x--
+        }
+        playHistory.add(list);
+        updateDicesWith(list);
         Log.d(TAG, "Roll")
     }
 
@@ -55,9 +53,36 @@ class MainActivity : AppCompatActivity() {
         startActivity(intent)
     }
 
-    private fun updateDicesWith(d1: Int, d2: Int) {
-        imgDice1.setImageResource( diceId[d1] )
-        imgDice2.setImageResource( diceId[d2] )
+    private fun updateDicesWith(nums:List<Int>) {
+        imgDice1.isEnabled=false;
+        imgDice2.isEnabled=false;
+        //Not really how id like it to go eh...
+        var x=nums.size;
+        while (x > 0) {
+            when (x) {
+                1 -> {
+                    imgDice1.setImageResource(diceId[nums[x-1]]);
+                    imgDice1.isEnabled = true;
+                }
+                2 -> {
+                    imgDice2.setImageResource(diceId[nums[x-1]]);
+                    imgDice2.isEnabled = false;
+                }
+                3 -> {
+
+                }
+                4 -> {
+
+                }
+                5 -> {
+
+                }
+                6 -> {
+
+                }
+            }
+            x--
+        }
     }
 
 
