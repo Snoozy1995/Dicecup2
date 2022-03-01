@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
+import easv.oe.dicecup2.ui.main.HistoryFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -11,6 +12,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private val TAG: String = "xyz"
+    private val playHistory=arrayListOf<List<Int>>();
 
     // mapping from 1..6 to drawables, the first index is unused
     private val diceId = intArrayOf(0, R.drawable.dice1,
@@ -28,9 +30,17 @@ class MainActivity : AppCompatActivity() {
         btnRoll.setOnClickListener { v -> onClickRoll() }
         Log.d(TAG, "OnCreate")
         btnHistory.setOnClickListener { v ->
-            startActivity(Intent(this@MainActivity, HistoryActivity::class.java))
+            onClickHistory()
         }
 
+    }
+
+    private fun addPlay(dices: List<Int>){
+        //val userDao=AppDatabase.getInstance(application).userDao();
+
+        //userDao.insertAll(DicePlay(dices));
+        playHistory.add(0,dices);
+        //Log.d(TAG,"SavedPlay. DBSIZE: "+userDao.all.size)
     }
 
     private fun onClickRoll(){
@@ -39,7 +49,15 @@ class MainActivity : AppCompatActivity() {
 
         // set dices
         updateDicesWith(e1, e2)
+        val e3=listOf(e1,e2)
+        addPlay(e3);
         Log.d(TAG, "Roll")
+    }
+
+    private fun onClickHistory(){
+        intent= Intent(this@MainActivity, HistoryActivity::class.java);
+        intent.putExtra("plays",playHistory);
+        startActivity(intent)
     }
 
     private fun updateDicesWith(d1: Int, d2: Int) {
