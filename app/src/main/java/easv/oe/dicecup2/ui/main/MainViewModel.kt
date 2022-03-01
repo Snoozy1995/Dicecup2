@@ -1,9 +1,6 @@
 package easv.oe.dicecup2.ui.main
 
-import androidx.lifecycle.LiveData
-import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
-import easv.oe.dicecup2.placeholder.PlaceholderContent
 
 class MainViewModel : ViewModel() {
     // TODO: Implement the ViewModel
