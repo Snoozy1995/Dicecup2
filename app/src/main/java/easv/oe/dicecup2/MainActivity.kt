@@ -4,7 +4,6 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import androidx.appcompat.app.AppCompatActivity
-import easv.oe.dicecup2.ui.main.HistoryFragment
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
 
@@ -36,11 +35,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun addPlay(dices: List<Int>){
-        //val userDao=AppDatabase.getInstance(application).userDao();
-
-        //userDao.insertAll(DicePlay(dices));
         playHistory.add(0,dices);
-        //Log.d(TAG,"SavedPlay. DBSIZE: "+userDao.all.size)
     }
 
     private fun onClickRoll(){
