@@ -19,11 +19,9 @@ import easv.oe.dicecup2.R
 class ItemFragment : Fragment() {
 
     private var columnCount = 1
-    lateinit var viewModel: MainViewModel;
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        viewModel = ViewModelProvider(this).get(MainViewModel::class.java)
 
         arguments?.let {
             columnCount = it.getInt(ARG_COLUMN_COUNT)
