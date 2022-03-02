@@ -34,7 +34,17 @@ class MainActivity : AppCompatActivity() {
 
         minusBtn.setOnClickListener{v->addDice(-1)}
         plusBtn.setOnClickListener{v->addDice(+1)}
+        if(savedInstanceState!=null){
+            diceCount=savedInstanceState.getInt("diceCount");
+        }
+        diceCountTextView.setText(diceCount.toString());
+        refreshDices();
 
+    }
+
+    override fun onSaveInstanceState(icicle: Bundle) {
+        super.onSaveInstanceState(icicle)
+        icicle.putInt("diceCount",diceCount)
     }
 
     private fun addDice(amount:Int){
