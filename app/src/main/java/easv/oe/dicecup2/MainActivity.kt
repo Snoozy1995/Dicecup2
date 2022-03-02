@@ -11,9 +11,7 @@ import java.util.*
 class MainActivity : AppCompatActivity() {
 
     private val TAG: String = "xyz"
-    var playHistory=arrayListOf<List<Int>>()
     var diceCount=2
-
     // mapping from 1..6 to drawables, the first index is unused
     private val diceId = intArrayOf(0, R.drawable.dice1,
         R.drawable.dice2,
@@ -35,21 +33,18 @@ class MainActivity : AppCompatActivity() {
 
     }
 
-    private fun onClickRoll(){
-        var x=diceCount;
+    private fun onClickRoll(){ //Generate dice rolls...
         var list: ArrayList<Int> = ArrayList();
-        while (x > 0) {
+        for (i in 1..diceCount) {
             list.add(mRandomGenerator.nextInt(6) + 1)
-            x--
         }
-        playHistory.add(list);
+        DicePlays.addHistory(list);
         updateDicesWith(list);
         Log.d(TAG, "Roll")
     }
 
     private fun onClickHistory(){
         intent= Intent(this@MainActivity, HistoryActivity::class.java);
-        intent.putExtra("plays",playHistory);
         startActivity(intent)
     }
 

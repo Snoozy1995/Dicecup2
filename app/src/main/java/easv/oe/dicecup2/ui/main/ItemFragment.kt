@@ -1,16 +1,17 @@
 package easv.oe.dicecup2.ui.main
 
 import android.os.Bundle
-import android.util.Log
-import androidx.fragment.app.Fragment
-import androidx.recyclerview.widget.GridLayoutManager
-import androidx.recyclerview.widget.LinearLayoutManager
-import androidx.recyclerview.widget.RecyclerView
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
+import androidx.recyclerview.widget.RecyclerView
+import easv.oe.dicecup2.DicePlays
 import easv.oe.dicecup2.R
+
 
 /**
  * A fragment representing a list of Items.
@@ -42,9 +43,7 @@ class ItemFragment : Fragment() {
                     columnCount <= 1 -> LinearLayoutManager(context)
                     else -> GridLayoutManager(context, columnCount)
                 }
-                val plays:ArrayList<List<Int>> =
-                    arguments?.getSerializable("plays") as ArrayList<List<Int>>;
-                adapter = MyItemRecyclerViewAdapter(plays)
+                adapter = MyItemRecyclerViewAdapter(DicePlays.getHistory())
             }
         }
         return view
