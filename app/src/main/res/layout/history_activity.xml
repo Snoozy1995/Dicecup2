@@ -4,4 +4,33 @@
     android:id="@+id/container"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".HistoryActivity" />
+    tools:context=".HistoryActivity">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_gravity="bottom"
+        android:background="#3A3A3A"
+        android:gravity="center"
+        android:orientation="horizontal"
+        android:translationZ="90px">
+
+        <Button
+            android:id="@+id/backBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="25px"
+            android:layout_weight="0.5"
+            android:text="Back"
+            android:textAlignment="inherit" />
+
+        <Button
+            android:id="@+id/clearHistoryBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_margin="25px"
+            android:layout_weight="1.5"
+            android:text="Clear History"
+            android:textAlignment="inherit" />
+    </LinearLayout>
+</FrameLayout>

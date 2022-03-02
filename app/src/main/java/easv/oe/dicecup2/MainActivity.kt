@@ -31,6 +31,14 @@ class MainActivity : AppCompatActivity() {
             onClickHistory()
         }
 
+        minusBtn.setOnClickListener{v->setDice(diceCount-1)}
+        plusBtn.setOnClickListener{v->setDice(diceCount+1)}
+
+    }
+
+    private fun setDice(amount:Int){
+        diceCount=amount;
+        diceCountTextView.setText(diceCount.toString());
     }
 
     private fun onClickRoll(){ //Generate dice rolls...

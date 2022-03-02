@@ -10,7 +10,7 @@ class DicePlays {
             playHistory=arrayListOf()
         }
         fun addHistory(plays  :List<Int>){
-            playHistory.add(plays )
+            playHistory.add(0,plays )
         }
     }
 }

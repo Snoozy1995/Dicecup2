@@ -29,7 +29,7 @@ class MyItemRecyclerViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
         val item = values?.get(position);
-        holder.idView.text = position.toString()
+        holder.idView.text =(values.size-position).toString()
 
         var res:String="";
         if (item != null) {
