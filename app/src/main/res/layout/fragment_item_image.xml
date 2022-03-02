@@ -10,36 +10,12 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_margin="@dimen/text_margin"
-        android:layout_weight="1"
         android:textAppearance="?attr/textAppearanceListItem" />
 
     <ImageView
-        android:id="@+id/imageView6"
+        android:id="@+id/imageView1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:adjustViewBounds="true"
-        android:maxWidth="40dp"
-        android:padding="10px"
-        android:scaleType="fitCenter"
-        android:src="@drawable/dice1" />
-
-    <ImageView
-        android:id="@+id/imageView3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
-        android:adjustViewBounds="true"
-        android:maxWidth="40dp"
-        android:padding="10px"
-        android:scaleType="fitCenter"
-        android:src="@drawable/dice1" />
-
-    <ImageView
-        android:id="@+id/imageView4"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:adjustViewBounds="true"
         android:maxWidth="40dp"
         android:padding="10px"
@@ -50,7 +26,26 @@
         android:id="@+id/imageView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
+        android:adjustViewBounds="true"
+        android:maxWidth="40dp"
+        android:padding="10px"
+        android:scaleType="fitCenter"
+        android:src="@drawable/dice1" />
+
+    <ImageView
+        android:id="@+id/imageView3"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:adjustViewBounds="true"
+        android:maxWidth="40dp"
+        android:padding="10px"
+        android:scaleType="fitCenter"
+        android:src="@drawable/dice1" />
+
+    <ImageView
+        android:id="@+id/imageView4"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:maxWidth="40dp"
         android:padding="10px"
@@ -61,7 +56,6 @@
         android:id="@+id/imageView5"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:adjustViewBounds="true"
         android:maxWidth="40dp"
         android:padding="10px"
@@ -69,10 +63,9 @@
         android:src="@drawable/dice1" />
 
     <ImageView
-        android:id="@+id/imageView1"
+        android:id="@+id/imageView6"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_weight="1"
         android:adjustViewBounds="true"
         android:maxWidth="40dp"
         android:padding="10px"

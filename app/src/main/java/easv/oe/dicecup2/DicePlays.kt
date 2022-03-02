@@ -2,14 +2,14 @@ package easv.oe.dicecup2
 
 class DicePlays {
     companion object {
-        var playHistory=arrayListOf<List<Int>>()
-        fun getHistory(): ArrayList<List<Int>> {
+        var playHistory=arrayListOf<DicePlay>()
+        fun getHistory(): ArrayList<DicePlay> {
             return playHistory
         }
         fun clearHistory(){
             playHistory=arrayListOf()
         }
-        fun addHistory(plays  :List<Int>){
+        fun addHistory(plays  : DicePlay){
             playHistory.add(0,plays )
         }
     }

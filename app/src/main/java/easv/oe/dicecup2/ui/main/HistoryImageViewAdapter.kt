@@ -6,15 +6,17 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageView
 import android.widget.TextView
+import easv.oe.dicecup2.DicePlay
 import easv.oe.dicecup2.R
 import easv.oe.dicecup2.databinding.FragmentItemImageBinding
+import java.text.SimpleDateFormat
 
 
 /**
  * [RecyclerView.Adapter] that can display a [List<List<Int>>].
  */
 class HistoryImageViewAdapter(
-    private val values: MutableList<List<Int>>
+    private val values: MutableList<DicePlay>
 ) : RecyclerView.Adapter<HistoryImageViewAdapter.ViewHolder2>() {
     // mapping from 1..6 to drawables, the first index is unused
     private val diceId = intArrayOf(0, R.drawable.dice1,
@@ -38,47 +40,49 @@ class HistoryImageViewAdapter(
 
     override fun onBindViewHolder(holder: ViewHolder2, position: Int) {
         val item = values[position];
-        holder.idView.text =(values.size-position).toString()
+        val sdf = SimpleDateFormat("dd/M hh:mm")
+        val currentDate = sdf.format(item.timestamp)
+        holder.idView.text =(values.size-position).toString()+". "+currentDate
 
-        var x=item.size;
+        var x=item.playHistory.size;
         while (x > 0) {
             when (x) {
-                1 -> { holder.imageView1.setImageResource(diceId[item[x-1]]) }
-                2 -> { holder.imageView2.setImageResource(diceId[item[x-1]]) }
-                3 -> { holder.imageView3.setImageResource(diceId[item[x-1]]) }
-                4 -> { holder.imageView4.setImageResource(diceId[item[x-1]]) }
-                5 -> { holder.imageView5.setImageResource(diceId[item[x-1]]) }
-                6 -> { holder.imageView6.setImageResource(diceId[item[x-1]]) }
+                1 -> { holder.imageView1.setImageResource(diceId[item.playHistory[x-1]]) }
+                2 -> { holder.imageView2.setImageResource(diceId[item.playHistory[x-1]]) }
+                3 -> { holder.imageView3.setImageResource(diceId[item.playHistory[x-1]]) }
+                4 -> { holder.imageView4.setImageResource(diceId[item.playHistory[x-1]]) }
+                5 -> { holder.imageView5.setImageResource(diceId[item.playHistory[x-1]]) }
+                6 -> { holder.imageView6.setImageResource(diceId[item.playHistory[x-1]]) }
             }
             x--
         }
 
         //Not really how id like it to go eh...
-        if(item.size>=2){
+        if(item.playHistory.size>=2){
             holder.imageView2.visibility= View.VISIBLE;
         }else{
             holder.imageView2.visibility= View.GONE;
         }
 
-        if(item.size>=3){
+        if(item.playHistory.size>=3){
             holder.imageView3.visibility= View.VISIBLE;
         }else{
             holder.imageView3.visibility= View.GONE;
         }
 
-        if(item.size>=4){
+        if(item.playHistory.size>=4){
             holder.imageView4.visibility= View.VISIBLE;
         }else{
             holder.imageView4.visibility= View.GONE;
         }
 
-        if(item.size>=5){
+        if(item.playHistory.size>=5){
             holder.imageView5.visibility= View.VISIBLE;
         }else{
             holder.imageView5.visibility= View.GONE;
         }
 
-        if(item.size>=6){
+        if(item.playHistory.size>=6){
             holder.imageView6.visibility= View.VISIBLE;
         }else{
             holder.imageView6.visibility= View.GONE;

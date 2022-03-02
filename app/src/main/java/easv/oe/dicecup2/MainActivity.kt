@@ -1,9 +1,11 @@
 package easv.oe.dicecup2
 
 import android.content.Intent
+import android.os.Build
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import androidx.annotation.RequiresApi
 import androidx.appcompat.app.AppCompatActivity
 import kotlinx.android.synthetic.main.activity_main.*
 import java.util.*
@@ -37,7 +39,7 @@ class MainActivity : AppCompatActivity() {
         if(savedInstanceState!=null){
             diceCount=savedInstanceState.getInt("diceCount");
             if(DicePlays.playHistory.size>0){
-                updateDicesWith(DicePlays.playHistory[0]);
+                updateDicesWith(DicePlays.playHistory[0].playHistory);
             }
         }
         diceCountTextView.setText(diceCount.toString());
@@ -58,12 +60,13 @@ class MainActivity : AppCompatActivity() {
         refreshDices();
     }
 
+    @RequiresApi(Build.VERSION_CODES.O)
     private fun onClickRoll(){ //Generate dice rolls...
         var list: ArrayList<Int> = ArrayList();
         for (i in 1..diceCount) {
             list.add(mRandomGenerator.nextInt(6) + 1)
         }
-        DicePlays.addHistory(list);
+        DicePlays.addHistory(DicePlay(Date(),list));
         updateDicesWith(list);
         Log.d(TAG, "Roll")
     }
