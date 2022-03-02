@@ -36,6 +36,9 @@ class MainActivity : AppCompatActivity() {
         plusBtn.setOnClickListener{v->addDice(+1)}
         if(savedInstanceState!=null){
             diceCount=savedInstanceState.getInt("diceCount");
+            if(DicePlays.playHistory.size>0){
+                updateDicesWith(DicePlays.playHistory[0]);
+            }
         }
         diceCountTextView.setText(diceCount.toString());
         refreshDices();
