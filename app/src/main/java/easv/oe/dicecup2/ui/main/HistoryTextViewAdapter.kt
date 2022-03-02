@@ -10,9 +10,9 @@ import easv.oe.dicecup2.databinding.FragmentItemBinding
 /**
  * [RecyclerView.Adapter] that can display a [List<List<Int>>].
  */
-class MyItemRecyclerViewAdapter(
+class HistoryTextViewAdapter(
     private val values: MutableList<List<Int>>
-) : RecyclerView.Adapter<MyItemRecyclerViewAdapter.ViewHolder>() {
+) : RecyclerView.Adapter<HistoryTextViewAdapter.ViewHolder>() {
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): ViewHolder {
 

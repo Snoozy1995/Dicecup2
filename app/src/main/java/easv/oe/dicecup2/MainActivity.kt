@@ -71,7 +71,7 @@ class MainActivity : AppCompatActivity() {
     }
 
     private fun updateDicesWith(nums:List<Int>) {
-        //Not really how id like it to go eh...
+        //Not really how id like it to go eh... Preferably have them in some group/list so they could be iterated instead of manually coding.
         var x=nums.size;
         while (x > 0) {
             when (x) {
