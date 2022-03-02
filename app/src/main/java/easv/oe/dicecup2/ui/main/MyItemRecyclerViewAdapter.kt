@@ -9,7 +9,6 @@ import easv.oe.dicecup2.databinding.FragmentItemBinding
 
 /**
  * [RecyclerView.Adapter] that can display a [List<List<Int>>].
- * TODO: Replace the implementation with code for your data type.
  */
 class MyItemRecyclerViewAdapter(
     private val values: MutableList<List<Int>>
