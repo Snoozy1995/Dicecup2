@@ -28,21 +28,19 @@ class MyItemRecyclerViewAdapter(
     }
 
     override fun onBindViewHolder(holder: ViewHolder, position: Int) {
-        val item = values?.get(position);
+        val item = values[position];
         holder.idView.text =(values.size-position).toString()
 
         var res:String="";
-        if (item != null) {
-            for (it in item){
-                res+= " $it";
-            }
+        for (it in item){
+            res+= " $it";
         }
 
         holder.contentView.text = res;
     }
 
     override fun getItemCount(): Int {
-        return values?.size ?: 0;
+        return values.size
     }
 
     inner class ViewHolder(binding: FragmentItemBinding) : RecyclerView.ViewHolder(binding.root) {
