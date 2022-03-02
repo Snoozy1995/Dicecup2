@@ -55,7 +55,39 @@ class MainActivity : AppCompatActivity() {
         refreshDices();
     }
 
+    private fun onClickRoll(){ //Generate dice rolls...
+        var list: ArrayList<Int> = ArrayList();
+        for (i in 1..diceCount) {
+            list.add(mRandomGenerator.nextInt(6) + 1)
+        }
+        DicePlays.addHistory(list);
+        updateDicesWith(list);
+        Log.d(TAG, "Roll")
+    }
+
+    private fun onClickHistory(){
+        intent= Intent(this@MainActivity, HistoryActivity::class.java);
+        startActivity(intent)
+    }
+
+    private fun updateDicesWith(nums:List<Int>) {
+        //Not really how id like it to go eh...
+        var x=nums.size;
+        while (x > 0) {
+            when (x) {
+                1 -> { imgDice1.setImageResource(diceId[nums[x-1]]) }
+                2 -> { imgDice2.setImageResource(diceId[nums[x-1]]) }
+                3 -> { imgDice3.setImageResource(diceId[nums[x-1]]) }
+                4 -> { imgDice4.setImageResource(diceId[nums[x-1]]) }
+                5 -> { imgDice5.setImageResource(diceId[nums[x-1]]) }
+                6 -> { imgDice6.setImageResource(diceId[nums[x-1]]) }
+            }
+            x--
+        }
+    }
+
     private fun refreshDices(){
+        //Not really how id like it to go eh...
         if(diceCount>=2){
             imgDice2.visibility= View.VISIBLE;
         }else{
@@ -88,38 +120,5 @@ class MainActivity : AppCompatActivity() {
             imgDice6.visibility= View.GONE;
         }
     }
-
-    private fun onClickRoll(){ //Generate dice rolls...
-        var list: ArrayList<Int> = ArrayList();
-        for (i in 1..diceCount) {
-            list.add(mRandomGenerator.nextInt(6) + 1)
-        }
-        DicePlays.addHistory(list);
-        updateDicesWith(list);
-        Log.d(TAG, "Roll")
-    }
-
-    private fun onClickHistory(){
-        intent= Intent(this@MainActivity, HistoryActivity::class.java);
-        startActivity(intent)
-    }
-
-    private fun updateDicesWith(nums:List<Int>) {
-        //Not really how id like it to go eh...
-        var x=nums.size;
-        while (x > 0) {
-            when (x) {
-                1 -> { imgDice1.setImageResource(diceId[nums[x-1]]) }
-                2 -> { imgDice2.setImageResource(diceId[nums[x-1]]) }
-                3 -> { imgDice3.setImageResource(diceId[nums[x-1]]) }
-                4 -> { imgDice4.setImageResource(diceId[nums[x-1]]) }
-                5 -> { imgDice5.setImageResource(diceId[nums[x-1]]) }
-                6 -> { imgDice6.setImageResource(diceId[nums[x-1]]) }
-            }
-            x--
-        }
-    }
-
-
 
 }
